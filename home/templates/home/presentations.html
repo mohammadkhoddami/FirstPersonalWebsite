@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mohammad Hasan Khoddami</title>
+  <link rel="stylesheet" href= "{% static 'home/css/animate.css' %}">
+  <link rel="stylesheet" href= "{% static 'home/css/flexslider.css' %}">
+  <link rel="stylesheet" href= "{% static 'home/fonts/style.css' %}">
+  <link rel="stylesheet" href= "{% static 'home/css/bootstrap.css' %}">
+  <link rel="stylesheet" href="{% static "home/css/style.css" %}">
+</head>
+<body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
+	<nav class="navbar navbar-expand-lg site-navbar navbar-light bg-light" id="pb-navbar">
+
+		<div class="container">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+	
+	
+			<div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample09">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link" href={% url "home" %}>Home</a></li>
+					<li class="nav-item"><a class="nav-link" href={% url "presentations" %}>Presentations</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+    
+
+	<section class="site-section " id="section-resume">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 mb-5">
+					<div class="section-heading text-center">
+						<h2>My <strong>Presentations</strong></h2>
+					</div>
+				</div>
+				
+				<div class="col-md-12">
+					<h2 class="mb-5">Reaserch and Presentations</h2>
+					{% for p in pre %}
+					
+					<div class="resume-item mb-4">
+						<h3>{{ p.title }}</h3>
+						<p>{{ p.body }}</p>
+						<a href = {{ p.file.url }}>Downlaod</a>
+							
+						</div>
+						{% endfor %}
+					
+		
+				</div>
